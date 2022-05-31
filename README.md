@@ -1,38 +1,27 @@
-# create-svelte
+# Oscar
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Oscar is a modern movie streaming BitTorrent client compatible with all desktop platforms. Oscar's frontend is built with Typescript and Svelte, while the "backend" is built with Rust and [Tauri](https://github.com/tauri-apps/tauri). Tauri is a newer alternative to [Electron](https://www.electronjs.org/) that enables native apps with a lower memory footprint and bundle size. Tauri leverages dynamic-linking of platform-specific Webviews, rather than shipping a Chromium instance with each app.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Running the project
 
 ```bash
-# create a new project in the current directory
-npm init svelte
+# Install Rust
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 
-# create a new project in my-app
-npm init svelte my-app
-```
+# Installs Tauri CLI, Tauri bindings, Sveltekit and other dependencies
+yarn
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# Runs the app using Tauri backend and Sveltekit Frontend
+yarn dev
 ```
 
 ## Building
 
-To create a production version of your app:
+To create a production version of the app:
 
 ```bash
-npm run build
+yarn build
+
+# Location of build
+ls src-tauri/target/release/bundle
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
